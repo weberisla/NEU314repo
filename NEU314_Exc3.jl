@@ -42,6 +42,18 @@ axis("off")
 ## f.
 
 # B.
-function shift_(image)
-    imshow(circshift(image, pixels))
+
+function shift_red(image, pixels)
+    R = image[:,:,1]
+    circshift(R, pixels)
 end
+
+subplot(1,2,1)
+imshow(image[:,:,1])
+title("Normal")
+axis("off")
+
+subplot(1,2,2)
+imshow(shift_red(image, 180))
+title("Shift")
+axis("off")
